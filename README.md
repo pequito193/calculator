@@ -1,1 +1,1 @@
-# calculator
+Basic calculator, https://pequito193.github.io/calculator/
