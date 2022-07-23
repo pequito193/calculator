@@ -37,6 +37,8 @@ h1 {
     border-radius: 10px;
     padding: 16px;
     font-size: 40px;
+    height: 48px;
+    text-overflow: clip;
 }
 
 .buttons {
