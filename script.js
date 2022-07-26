@@ -84,9 +84,10 @@ del.addEventListener('click', e => {
     let newString;
     let i = onScreen.textContent.length
     if (onScreen.textContent.charAt(i - 1) == ' ') {
-        newString = onScreen.textContent.slice(0, -2)
+        newString = onScreen.textContent.slice(0, -3)
     } else {
         newString = onScreen.textContent.slice(0, -1)
     }
+    console.log(newString + '.')
     onScreen.textContent = newString
 })
