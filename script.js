@@ -63,6 +63,7 @@ equalSign.addEventListener('click', e => {
         }
         console.log(firstNumber, operator, secondNumber);
         result = operate(operator, firstNumber, secondNumber);
+        result = Math.round((result + Number.EPSILON) * 1000) / 1000;
         onScreen.textContent = result
         }
     })
