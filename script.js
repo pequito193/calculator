@@ -15,7 +15,16 @@ function divide(firstNumber, secondNumber) {
 }
 
 function operate(operator, firstNumber, secondNumber) {
-    let result = operator(firstNumber, secondNumber);
+    let result;
+    if (operator == '+') {
+        result = add(firstNumber, secondNumber);
+    } else if (operator == '-') {
+        result = subtract(firstNumber, secondNumber);
+    } else if (operator == '*') {
+        result = multiply(firstNumber, secondNumber);
+    } else if (operator == '/') {
+        result = divide(firstNumber, secondNumber);
+    }
     return result;
 }
 
@@ -36,7 +45,23 @@ button.forEach(button => button.addEventListener('click', e => {
 }))
 
 
+// Button to compute the calculation and display on the screen (currently only accepts 2 numbers and 1 operator)
 const equalSign = document.querySelector('.equal-sign')
 equalSign.addEventListener('click', e => {
-
+    const onScreen = document.querySelector('.screen')
+    screenArray = onScreen.textContent.split(' ');
+    if (screenArray.length > 1) {
+        if (screenArray[0] == '-') {
+            firstNumber = Number(screenArray[1]) * -1;
+            operator = screenArray[2];
+            secondNumber = screenArray[3]; 
+        } else {
+            firstNumber = Number(screenArray[0]);
+            operator = screenArray[1];
+            secondNumber = Number(screenArray[2]);
+        }
+        console.log(firstNumber, secondNumber, operator)
+        result = operate(operator, firstNumber, secondNumber);
+        onScreen.textContent = result
+    }
 })
