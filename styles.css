@@ -81,7 +81,7 @@ footer {
 }
 
 .clickable {
-    box-shadow: 2px 2px 20px rgb(57, 49, 128);
+    box-shadow: 2px 2px 10px rgb(57, 49, 128);
 }
 
 .clickable:hover {
