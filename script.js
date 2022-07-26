@@ -52,22 +52,17 @@ equalSign.addEventListener('click', e => {
     screenArray = onScreen.textContent.split(' ');
     if (screenArray.length > 1) {
         console.log(screenArray);
-        if (screenArray.includes(' ')) {
-            onScreen.textContent = 'ERROR'
+        if (screenArray[0] == '-' || (screenArray[0] == '' && screenArray[1] == '-')) {
+            firstNumber = Number(screenArray[2]) * -1;
+            operator = screenArray[3];
+            secondNumber = Number(screenArray[4]); 
+        } else {
+            firstNumber = Number(screenArray[0]);
+            operator = screenArray[1];
+            secondNumber = Number(screenArray[2]);
         }
-        else { 
-            if (screenArray[0] == '-' || (screenArray[0] == '' && screenArray[1] == '-')) {
-                firstNumber = Number(screenArray[2]) * -1;
-                operator = screenArray[3];
-                secondNumber = Number(screenArray[4]); 
-            } else {
-                firstNumber = Number(screenArray[0]);
-                operator = screenArray[1];
-                secondNumber = Number(screenArray[2]);
-            }
-            console.log(firstNumber, operator, secondNumber);
-            result = operate(operator, firstNumber, secondNumber);
-            onScreen.textContent = result
-            }
+        console.log(firstNumber, operator, secondNumber);
+        result = operate(operator, firstNumber, secondNumber);
+        onScreen.textContent = result
         }
     })
