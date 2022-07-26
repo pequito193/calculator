@@ -80,6 +80,10 @@ footer {
     font-family: 'Roboto', arial;
 }
 
+.clickable {
+    box-shadow: 2px 2px rgb(57, 49, 128);
+}
+
 .clickable:hover {
     transform: scale(1.1,1.1);
 }
