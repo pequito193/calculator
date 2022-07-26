@@ -51,16 +51,16 @@ equalSign.addEventListener('click', e => {
     const onScreen = document.querySelector('.screen')
     screenArray = onScreen.textContent.split(' ');
     if (screenArray.length > 1) {
-        if (screenArray[0] == '-') {
-            firstNumber = Number(screenArray[1]) * -1;
-            operator = screenArray[2];
-            secondNumber = screenArray[3]; 
+        if (screenArray[1] == '-') {
+            firstNumber = Number(screenArray[2]) * -1;
+            operator = screenArray[3];
+            secondNumber = Number(screenArray[4]); 
         } else {
             firstNumber = Number(screenArray[0]);
             operator = screenArray[1];
             secondNumber = Number(screenArray[2]);
         }
-        console.log(firstNumber, secondNumber, operator)
+        console.log(firstNumber, operator, secondNumber)
         result = operate(operator, firstNumber, secondNumber);
         onScreen.textContent = result
     }
