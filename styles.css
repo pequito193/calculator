@@ -37,8 +37,9 @@ h1 {
     border-radius: 10px;
     padding: 16px;
     font-size: 40px;
-    height: 48px;
-    text-overflow: clip;
+    height: 56px;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 .buttons {
@@ -77,4 +78,8 @@ footer {
     text-align: center;
     font-weight: bold;
     font-family: 'Roboto', arial;
+}
+
+.clickable:hover {
+    transform: scale(1.1,1.1);
 }
