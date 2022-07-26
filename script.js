@@ -50,8 +50,11 @@ const equalSign = document.querySelector('.equal-sign')
 equalSign.addEventListener('click', e => {
     const onScreen = document.querySelector('.screen')
     screenArray = onScreen.textContent.split(' ');
+    for (let i = 0; i < screenArray.length; i++) {
+        console.log(screenArray[i]);
+    }
     if (screenArray.length > 1) {
-        if (screenArray[1] == '-') {
+        if (screenArray[0] == '-') {
             firstNumber = Number(screenArray[2]) * -1;
             operator = screenArray[3];
             secondNumber = Number(screenArray[4]); 
