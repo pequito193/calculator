@@ -75,3 +75,18 @@ equalSign.addEventListener('click', e => {
             onScreen.textContent = 'ERROR'
         }
     })
+
+
+// Button to delete last input on the screen
+const del = document.querySelector('.delete')
+del.addEventListener('click', e => {
+    const onScreen = document.querySelector('.screen')
+    let newString;
+    let i = onScreen.textContent.length
+    if (onScreen.textContent.charAt(i - 1) == ' ') {
+        newString = onScreen.textContent.slice(0, -2)
+    } else {
+        newString = onScreen.textContent.slice(0, -1)
+    }
+    onScreen.textContent = newString
+})
