@@ -50,21 +50,24 @@ const equalSign = document.querySelector('.equal-sign')
 equalSign.addEventListener('click', e => {
     const onScreen = document.querySelector('.screen')
     screenArray = onScreen.textContent.split(' ');
-    for (let i = 0; i < screenArray.length; i++) {
-        console.log(screenArray[i]);
-    }
     if (screenArray.length > 1) {
-        if (screenArray[0] == '-') {
-            firstNumber = Number(screenArray[2]) * -1;
-            operator = screenArray[3];
-            secondNumber = Number(screenArray[4]); 
-        } else {
-            firstNumber = Number(screenArray[0]);
-            operator = screenArray[1];
-            secondNumber = Number(screenArray[2]);
+        console.log(screenArray);
+        if (screenArray.includes(' ')) {
+            onScreen.textContent = 'ERROR'
         }
-        console.log(firstNumber, operator, secondNumber)
-        result = operate(operator, firstNumber, secondNumber);
-        onScreen.textContent = result
-    }
-})
+        else { 
+            if (screenArray[0] == '-' || (screenArray[0] == '' && screenArray[1] == '-')) {
+                firstNumber = Number(screenArray[2]) * -1;
+                operator = screenArray[3];
+                secondNumber = Number(screenArray[4]); 
+            } else {
+                firstNumber = Number(screenArray[0]);
+                operator = screenArray[1];
+                secondNumber = Number(screenArray[2]);
+            }
+            console.log(firstNumber, operator, secondNumber);
+            result = operate(operator, firstNumber, secondNumber);
+            onScreen.textContent = result
+            }
+        }
+    })
