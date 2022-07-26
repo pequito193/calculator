@@ -41,6 +41,9 @@ clear.addEventListener('click', e => {
 const button = document.querySelectorAll('.button')
 button.forEach(button => button.addEventListener('click', e => {
     const onScreen = document.querySelector('.screen')
+    if (onScreen.textContent == 'ERROR') {
+        onScreen.textContent = ''
+    }
     onScreen.textContent = onScreen.textContent + button.textContent
 }))
 
@@ -50,12 +53,15 @@ const equalSign = document.querySelector('.equal-sign')
 equalSign.addEventListener('click', e => {
     const onScreen = document.querySelector('.screen')
     screenArray = onScreen.textContent.split(' ');
-    if (screenArray.length > 1) {
+    if (screenArray[0] == '') {
+        screenArray.shift();
+    }
+    if (screenArray.length > 1 && screenArray.length < 5) {
         console.log(screenArray);
-        if (screenArray[0] == '-' || (screenArray[0] == '' && screenArray[1] == '-')) {
-            firstNumber = Number(screenArray[2]) * -1;
-            operator = screenArray[3];
-            secondNumber = Number(screenArray[4]); 
+        if (screenArray[0] == '-') {
+            firstNumber = Number(screenArray[1]) * -1;
+            operator = screenArray[2];
+            secondNumber = Number(screenArray[3]); 
         } else {
             firstNumber = Number(screenArray[0]);
             operator = screenArray[1];
@@ -65,5 +71,7 @@ equalSign.addEventListener('click', e => {
         result = operate(operator, firstNumber, secondNumber);
         result = Math.round((result + Number.EPSILON) * 1000) / 1000;
         onScreen.textContent = result
+        } else {
+            onScreen.textContent = 'ERROR'
         }
     })
