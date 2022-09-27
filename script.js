@@ -57,7 +57,6 @@ equalSign.addEventListener('click', e => {
         screenArray.shift();
     }
     if (screenArray.length > 1 && screenArray.length < 5) {
-        console.log(screenArray);
         if (screenArray[0] == '-') {
             firstNumber = Number(screenArray[1]) * -1;
             operator = screenArray[2];
@@ -67,7 +66,6 @@ equalSign.addEventListener('click', e => {
             operator = screenArray[1];
             secondNumber = Number(screenArray[2]);
         }
-        console.log(firstNumber, operator, secondNumber);
         result = operate(operator, firstNumber, secondNumber);
         result = Math.round((result + Number.EPSILON) * 1000) / 1000;
         onScreen.textContent = result
@@ -88,6 +86,5 @@ del.addEventListener('click', e => {
     } else {
         newString = onScreen.textContent.slice(0, -1)
     }
-    console.log(newString + '.')
     onScreen.textContent = newString
 })
